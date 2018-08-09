@@ -42,7 +42,7 @@ result=$(for each in $users
 do
 	STCheck=$(sysadminctl -secureTokenStatus each 2>&1 | awk '{print $7}')
 	userstatus=(echo "User $each is $STCheck")
-	echo "$userstatus" | tee -a  /tmp/ustatuslist.txt
+	echo "$userstatus" 
 	done)
 	
 
