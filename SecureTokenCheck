@@ -40,16 +40,16 @@ if [[ ${osvers_minor} -ge 13 ]]; then
 
 result=$(for each in $users
 do
-	STCheck=$(sysadminctl -secureTokenStatus each 2>&1 | awk '{print $7}')
-	userstatus=(echo "User $each is $STCheck")
-	echo "$userstatus" 
+	STCheck=$(/usr/sbin/sysadminctl -secureTokenStatus each 2>&1 | awk '{print $7}')
+	userstatus=(/bin/echo "User $each is $STCheck")
+	/bin/echo "$userstatus" 
 	done)
 	
 
-echo "<result>$result</result>"
+/bin/echo "<result>$result</result>"
 
 else
-	echo "<result>Not Eligible</result>"
+	/bin/echo "<result>Not Eligible</result>"
 fi
 
 exit 0
